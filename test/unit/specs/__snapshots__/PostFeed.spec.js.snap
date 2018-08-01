@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostFeed.vue when there are not posts renders the component correctly 1`] = `
+<div class="post-feed">
+    <p>Rendering post feed</p>
+    <li></li>
+</div>
+`;
+
+exports[`PostFeed.vue when there are posts renders the component correctly 1`] = `
+<div class="post-feed">
+    <p>Rendering post feed</p>
+    <li>
+        <ul>
+            <router-link to="/posts/1">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</router-link>
+        </ul>
+        <ul>
+            <router-link to="/posts/2">qui est esse</router-link>
+        </ul>
+        <ul>
+            <router-link to="/posts/3">ea molestias quasi exercitationem repellat qui ipsa sit aut</router-link>
+        </ul>
+    </li>
+</div>
+`;
