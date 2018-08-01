@@ -1,7 +1,12 @@
+import Vuex from 'vuex'
 import PostFeed from '@/components/PostFeed'
-import { shallow, mount } from 'vue-test-utils'
+import { shallow, mount, createLocalVue } from 'vue-test-utils'
 import { createRenderer } from 'vue-server-renderer'
 import mockStore from '../utils/mockStore'
+
+const localVue = createLocalVue()
+
+localVue.use(Vuex)
 
 describe('PostFeed.vue', () => {
   let store
@@ -11,13 +16,16 @@ describe('PostFeed.vue', () => {
     renderer = createRenderer()
   })
 
-  describe('when there are not posts', () => {
+  describe('when there are no posts', () => {
     beforeEach(() => {
-      store = mockStore({ getters: { posts: [] } })
+      store = new Vuex.Store({
+        state: {},
+        getters: { posts: () => [] }
+      })
     })
 
     it('renders the component correctly', () => {
-      const wrapper = shallow(PostFeed, { mocks: { ...store } })
+      const wrapper = shallow(PostFeed, { store, localVue })
 
       renderer.renderToString(wrapper.vm).then(str => {
         expect(str).toMatchSnapshot()
@@ -27,9 +35,10 @@ describe('PostFeed.vue', () => {
 
   describe('when there are posts', () => {
     beforeEach(() => {
-      store = mockStore({
+      store = new Vuex.Store({
+        state: {},
         getters: {
-          posts: [
+          posts: () => [
             {
               userId: 1,
               id: 1,
@@ -59,7 +68,7 @@ describe('PostFeed.vue', () => {
     })
 
     it('renders the component correctly', () => {
-      const wrapper = shallow(PostFeed, { mocks: { ...store } })
+      const wrapper = shallow(PostFeed, { store, localVue })
 
       renderer.renderToString(wrapper.vm).then(str => {
         expect(str).toMatchSnapshot()

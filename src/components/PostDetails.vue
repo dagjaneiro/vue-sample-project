@@ -45,6 +45,7 @@ export default {
       return this.$store.getters.getCommentsforPostId(this.$props.id)
     }
   },
+
   props: {
     id: String
   }

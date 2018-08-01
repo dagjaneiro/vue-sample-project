@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PostFeed.vue when there are not posts renders the component correctly 1`] = `
+exports[`PostFeed.vue when there are no posts renders the component correctly 1`] = `
 <div class="post-feed">
     <p>Rendering post feed</p>
     <li></li>

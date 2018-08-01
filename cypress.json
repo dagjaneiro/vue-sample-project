@@ -1,8 +1,10 @@
 {
-  "fixturesFolder": "test/cypress/fixtures",
-  "integrationFolder": "test/cypress/integration",
-  "pluginsFile": "test/cypress/plugins",
-  "screenshotsFolder": "test/cypress/screenshots",
-  "supportFile": "test/cypress/support",
-  "videosFolder": "test/cypress/videos"
+  "baseUrl": "http://localhost:8080",
+  "fixturesFolder": "test/e2e/fixtures",
+  "integrationFolder": "test/e2e/specs",
+  "pluginsFile": "test/e2e/plugins",
+  "screenshotsFolder": "test/e2e/screenshots",
+  "supportFile": "test/e2e/support",
+  "videosFolder": "test/e2e/videos",
+  "video": false
 }
