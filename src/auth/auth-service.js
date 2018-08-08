@@ -24,16 +24,18 @@ export default class AuthService {
   })
 
   login() {
-    this.auth0.authorize()
+    this.auth0.authorize({
+      connection: 'google-oauth2'
+    })
   }
 
   handleAuthentication() {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult)
-        router.replace('home')
+        router.replace('')
       } else if (err) {
-        router.replace('home')
+        router.replace('')
         console.log(err)
         alert(`Error: ${err.error}. Check the console for further details.`)
       }

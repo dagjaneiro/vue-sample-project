@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   created() {
     if (this.post.id == null) {
@@ -37,12 +39,14 @@ export default {
   },
 
   computed: {
+    ...mapGetters(['getPostById', 'getCommentsforPostId']),
+
     post() {
-      return this.$store.getters.getPostById(this.$props.id) || {}
+      return this.getPostById(this.$props.id) || {}
     },
 
     comments() {
-      return this.$store.getters.getCommentsforPostId(this.$props.id)
+      return this.getCommentsforPostId(this.$props.id)
     }
   },
 

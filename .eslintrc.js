@@ -25,6 +25,8 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // allow inline webpack loaders in order to use inject-loader
+    'import/no-webpack-loader-syntax': false
   }
 }
