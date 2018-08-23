@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <p>This is the details of the post.</p>
     <h1>{{ post.title }}</h1>
     <p>{{ post.body }}</p>
