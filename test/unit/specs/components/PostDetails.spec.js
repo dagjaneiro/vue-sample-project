@@ -70,11 +70,7 @@ describe('PostDetails.vue', () => {
       beforeEach(() => {
         store = new Vuex.Store({
           getters: {
-            getPostById: state => id => ({
-              id: '2',
-              title: 'other title',
-              body: 'other body'
-            })
+            getPostById: state => id => ({})
           }
         })
         store.dispatch = sinon.spy()
@@ -86,7 +82,7 @@ describe('PostDetails.vue', () => {
           store,
           localVue
         })
-        expect(store.dispatch).not.to.have.been.calledWith('getPostById', '1')
+        expect(store.dispatch).to.have.been.calledWith('getPostById', '1')
       })
 
       it('does not render the blog post title', () => {
